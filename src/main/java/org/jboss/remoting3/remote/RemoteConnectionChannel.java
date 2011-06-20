@@ -204,7 +204,6 @@ receiver = nextReceiver;
             }
 synchronized(this) {
             if (nextReceiver != null) {
-		System.out.println(" next receiver is not null");
                 final Receiver receiver = nextReceiver;
                 nextReceiver = null;
                 getExecutor().execute(new Runnable() {
@@ -213,7 +212,6 @@ synchronized(this) {
                     }
                 });
             } else {
-		System.out.println("KILLED: next message is null");
                 inboundMessageQueue.add(inboundMessage);
             }
 }
